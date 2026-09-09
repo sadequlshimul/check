@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise For You 💙</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Roman",serif;
+ color:#fff;display:flex;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 20% 15%,#174b82 0,transparent 32%),
+ radial-gradient(circle at 85% 80%,#392b79 0,transparent 34%),
+ linear-gradient(135deg,#031329,#082d57 55%,#111c4c);
+}
+.stars{position:fixed;inset:0}.star{position:absolute;width:3px;height:3px;border-radius:50%;
+background:#dff8ff;animation:twinkle 3s infinite ease-in-out}
+@keyframes twinkle{50%{opacity:.15;transform:scale(.5)}}
+.scene{width:min(92%,700px);text-align:center;position:relative;z-index:2}
+.intro{transition:1s ease}.intro.hide{opacity:0;transform:scale(.8);pointer-events:none;position:absolute}
+.small{letter-spacing:4px;text-transform:uppercase;color:#a9e5ff;font-size:12px}
+h1{font-size:clamp(30px,7vw,58px);margin:15px 0 8px;
+background:linear-gradient(90deg,#fff,#b9eeff,#ddd4ff,#fff);
+-webkit-background-clip:text;color:transparent}
+.sub{color:#c6dced;margin-bottom:30px;font-size:17px}
+.envelope-wrap{width:280px;height:190px;margin:25px auto;position:relative;cursor:pointer;
+filter:drop-shadow(0 22px 35px rgba(0,0,0,.4));transition:.4s}
+.envelope-wrap:hover{transform:translateY(-7px)}
+.envelope{position:absolute;inset:0;background:linear-gradient(145deg,#146b9d,#254c9b);
+border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+.flap{position:absolute;top:-1px;left:0;width:0;height:0;border-left:140px solid transparent;
+border-right:140px solid transparent;border-top:105px solid #2387b5;transform-origin:top;z-index:3;
+transition:1s}
+.left,.right{position:absolute;bottom:0;width:0;height:0;border-bottom:95px solid #155b91;z-index:2}
+.left{left:0;border-right:150px solid transparent}.right{right:0;border-left:150px solid transparent}
+.seal{position:absolute;z-index:4;left:50%;top:48%;transform:translate(-50%,-50%);
+width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
+background:linear-gradient(135deg,#9eeaff,#728cff);color:#08234b;font-size:25px;
+box-shadow:0 5px 20px rgba(80,200,255,.35);transition:.8s}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .seal{opacity:0;transform:translate(-50%,-30%) scale(.5)}
+.envelope.open .envelope-wrap{transform:scale(1.05)}
+.hint{color:#8fb5d2;font-size:13px;letter-spacing:1px}
+.letter{
+display:none;text-align:left;padding:35px 30px;border-radius:26px;
+background:rgba(6,24,53,.72);border:1px solid rgba(180,230,255,.25);
+backdrop-filter:blur(18px);box-shadow:0 25px 80px rgba(0,0,0,.4);
+animation:appear 1.2s ease
+}
+.letter.show{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(35px) scale(.95)}to{opacity:1;transform:none}}
+.letter h2{text-align:center;color:#a9e9ff;font-size:32px;margin-bottom:20px}
+.letter p{line-height:1.9;font-size:17px;color:#edf7ff;margin-bottom:15px}
+.signature{text-align:right;color:#9fe5ff;font-style:italic;margin-top:25px}
+.btn{display:block;margin:24px auto 0;border:1px solid #79d9ff;background:rgba(70,180,255,.12);
+color:#eafaff;padding:12px 23px;border-radius:999px;font-family:inherit;cursor:pointer}
+.heart{position:fixed;bottom:-20px;color:#8ddfff;animation:float 9s linear infinite;opacity:0}
+@keyframes float{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.65}85%{opacity:.45}
+100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+@media(max-width:520px){.letter{padding:28px 21px}.letter p{font-size:16px}.envelope-wrap{transform:scale(.9)}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+
+<div class="scene">
+ <div class="intro" id="intro">
+  <div class="small">a little surprise for you</div>
+  <h1>Someone left you a letter… 💙</h1>
+  <div class="sub">It only takes one little click to open it.</div>
+  <div class="envelope-wrap" onclick="openLetter()">
+   <div class="envelope" id="env">
+    <div class="flap"></div><div class="left"></div><div class="right"></div>
+    <div class="seal">♡</div>
+   </div>
+  </div>
+  <div class="hint">TAP THE ENVELOPE</div>
+ </div>
+
+ <div class="letter" id="letter">
+  <h2>Happy Birthday, Her Name 💙</h2>
+  <p>Dear <strong>Her Name</strong>,</p>
+  <p>
+   Today is your day, and somehow a simple “Happy Birthday” didn't feel
+   like enough. So I wanted to leave you something a little more personal.
+  </p>
+  <p>
+   I hope this new chapter brings you the kind of happiness that arrives
+   quietly and stays for a long time. May your days be filled with beautiful
+   moments, unexpected reasons to smile, and dreams that slowly become real.
+  </p>
+  <p>
+   Keep being the person you are. Keep smiling, keep dreaming, and never
+   forget how wonderfully unique you are. ✨
+  </p>
+  <p>
+   And whenever you look at the night sky, I hope you remember that somewhere
+   among all those little lights, there is a tiny wish with your name on it. 🌙
+  </p>
+  <div class="signature">With a little blue sky of wishes,<br><strong>Your Name</strong> 💙</div>
+  <button class="btn" onclick="extra()">One last little wish ✨</button>
+  <div id="extraText" style="display:none;text-align:center;color:#bfeeff;margin-top:18px;line-height:1.7">
+   May this year be kinder, brighter, and more beautiful than the last. 💫<br>
+   <strong>Happy Birthday once again. 💙</strong>
+  </div>
+ </div>
+</div>
+
+<script>
+for(let i=0;i<60;i++){
+ const s=document.createElement('span');s.className='star';
+ s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+ s.style.animationDelay=Math.random()*3+'s';s.style.opacity=.2+Math.random()*.7;
+ document.getElementById('stars').appendChild(s);
+}
+for(let i=0;i<14;i++){
+ const h=document.createElement('div');h.className='heart';
+ h.textContent=['♡','✦','⋆','♥'][Math.floor(Math.random()*4)];
+ h.style.left=Math.random()*100+'%';h.style.animationDelay=Math.random()*8+'s';
+ h.style.fontSize=12+Math.random()*15+'px';document.body.appendChild(h);
+}
+function openLetter(){
+ document.getElementById('env').classList.add('open');
+ setTimeout(()=>{
+  document.getElementById('intro').classList.add('hide');
+  document.getElementById('letter').classList.add('show');
+  document.body.style.overflow='auto';
+ },900);
+}
+function extra(){document.getElementById('extraText').style.display='block'}
+</script>
+</body>
+</html>
