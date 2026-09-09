@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>তোমার জন্য একটি ছোট্ট চমক 💙</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&family=Tiro+Bangla&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#f7fcff;font-family:"Noto Serif Bengali","Tiro Bangla",serif;background:radial-gradient(circle at 12% 10%,#155d91 0,transparent 30%),radial-gradient(circle at 88% 82%,#403178 0,transparent 34%),linear-gradient(135deg,#031329,#082e55 55%,#111b49)}
+.stars{position:fixed;inset:0;pointer-events:none}.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#dff8ff;animation:tw 3s infinite}.heart{position:fixed;bottom:-30px;color:#8bdcff;opacity:0;animation:fl 9s linear infinite;pointer-events:none}@keyframes tw{50%{opacity:.1;transform:scale(.5)}}@keyframes fl{0%{transform:translateY(0);opacity:0}15%{opacity:.7}85%{opacity:.45}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+.scene{width:min(92%,760px);position:relative;z-index:2;text-align:center}.intro{transition:1s}.intro.hide{opacity:0;transform:scale(.82);pointer-events:none;position:absolute;width:100%}.kicker{font-size:13px;letter-spacing:3px;color:#9ee5ff;margin-bottom:10px}h1{font-size:clamp(30px,7vw,58px);line-height:1.3;margin:0 0 10px;background:linear-gradient(90deg,#fff,#b8edff,#d9d0ff,#fff);-webkit-background-clip:text;color:transparent}.sub{color:#c7ddec;font-size:17px;line-height:1.8;margin-bottom:25px}
+.envwrap{width:310px;height:205px;margin:auto;cursor:pointer;position:relative;transition:.4s;filter:drop-shadow(0 25px 35px #0007)}.envwrap:hover{transform:translateY(-7px)}.env{position:absolute;inset:0;overflow:hidden;border-radius:14px;background:linear-gradient(145deg,#126d9e,#293f91);border:1px solid #fff4}.flap{position:absolute;top:0;left:0;width:0;height:0;border-left:155px solid transparent;border-right:155px solid transparent;border-top:115px solid #2186b4;transform-origin:top;transition:1s;z-index:4}.left,.right{position:absolute;bottom:0;width:0;height:0;border-bottom:105px solid #155b91;z-index:3}.left{left:0;border-right:165px solid transparent}.right{right:0;border-left:165px solid transparent}.seal{position:absolute;z-index:5;left:50%;top:49%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#a5ebff,#7e8fff);color:#09254c;font-size:29px;box-shadow:0 6px 25px #4fcfff66;transition:.8s}.env.open .flap{transform:rotateX(180deg);z-index:1}.env.open .seal{opacity:0;transform:translate(-50%,-25%) scale(.4)}.hint{color:#8eb7d4;font-size:13px;margin-top:12px}
+.letter{display:none;text-align:left;padding:38px 34px;border-radius:28px;background:#051630bb;border:1px solid #b4e5ff40;backdrop-filter:blur(20px);box-shadow:0 25px 90px #0007}.letter.show{display:block;animation:appear 1.2s ease}@keyframes appear{from{opacity:0;transform:translateY(35px) scale(.96)}to{opacity:1;transform:none}}.title{text-align:center;color:#a9eaff;font-size:32px;line-height:1.5;margin-bottom:22px}.letter p{font-size:17px;line-height:2.05;color:#edf8ff;margin:0 0 15px}.sig{text-align:right;color:#9fe5ff;font-style:italic;margin-top:25px}.btn{display:block;margin:24px auto 0;border:1px solid #89ddff88;background:#238fca22;color:#e9faff;padding:11px 20px;border-radius:999px;font-family:inherit;cursor:pointer}.extra{display:none;text-align:center;color:#c7efff;line-height:1.9;margin-top:18px}.music{position:fixed;right:18px;bottom:15px;z-index:10;display:none}.music.show{display:block}.music button{border:1px solid #89ddff88;background:#238fca22;color:#e9faff;padding:10px 16px;border-radius:999px;font-family:inherit;cursor:pointer}
+@media(max-width:560px){.letter{padding:28px 20px}.letter p{font-size:16px;line-height:1.95}.envwrap{transform:scale(.88);margin-bottom:-8px}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="scene">
+<div class="intro" id="intro">
+<div class="kicker">তোমার জন্য ছোট্ট একটা চমক</div>
+<h1>তোমার জন্য একটা চিঠি এসেছে… 💙</h1>
+<div class="sub">খুব বেশি কিছু না…<br>শুধু একটু মন দিয়ে বানানো একটা ছোট্ট উপহার।</div>
+<div class="envwrap" onclick="openLetter()"><div class="env" id="env"><div class="flap"></div><div class="left"></div><div class="right"></div><div class="seal">♡</div></div></div>
+<div class="hint">চিঠিটা খুলতে খামে স্পর্শ করো</div>
+</div>
+
+<article class="letter" id="letter">
+<div class="title">শুভ জন্মদিন, <span>তোমার নাম</span> 💙</div>
+<p>প্রিয় <strong>তোমার নাম</strong>,</p>
+<p>আজকের দিনটা তোমার জন্য একটু বিশেষ। তাই শুধু একটা “শুভ জন্মদিন” লিখে থেমে যেতে ইচ্ছে করল না। তোমার জন্য একটু সময় নিয়ে এই ছোট্ট চিঠিটা লিখলাম।</p>
+<p>তোমার জীবনের নতুন বছরটা যেন অনেক সুন্দর হয়। তোমার ছোট ছোট ইচ্ছেগুলো পূরণ হোক, অকারণে হাসার মতো অনেক মুহূর্ত আসুক, আর তোমার চারপাশে এমন মানুষ থাকুক যারা তোমাকে সত্যিই ভালো রাখতে চায়।</p>
+<p>জীবনে যত ব্যস্ততাই আসুক, নিজের হাসিটা যেন কখনো হারিয়ে ফেলো না। কারণ কিছু মানুষ আছে, যাদের হাসি পৃথিবীটাকে একটু বেশি সুন্দর করে দেয়। ✨</p>
+<p>আর যদি কোনোদিন আকাশের দিকে তাকিয়ে অনেকগুলো তারা দেখো, মনে করো—ওই অসংখ্য আলোর মাঝেও তোমার জন্য একটা ছোট্ট শুভকামনা ঠিকই জ্বলছে। 🌙</p>
+<p>ভালো থেকো, নিজের মতো থেকো, আর তোমার সামনে থাকা প্রতিটা দিনকে সুন্দর করে বাঁচো।</p>
+<div class="sig">অনেক শুভকামনা ও ভালোবাসা নিয়ে,<br><strong>তোমার নাম</strong> 💙</div>
+<button class="btn" onclick="extra()">আরও একটা কথা… ✨</button>
+<div class="extra" id="extra">এই বছরটা তোমার জীবনের সবচেয়ে সুন্দর অধ্যায়গুলোর একটা হোক।<br><br><strong>শুভ জন্মদিন। 💙</strong></div>
+</article>
+</div>
+
+<audio id="music" loop><source src="song.mp3" type="audio/mpeg"></audio>
+<div class="music" id="musicBox"><button id="musicBtn" onclick="toggleMusic()">🎵 গান বন্ধ</button></div>
+
+<script>
+for(let i=0;i<65;i++){let s=document.createElement("span");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";s.style.animationDelay=Math.random()*3+"s";document.getElementById("stars").appendChild(s)}
+for(let i=0;i<15;i++){let h=document.createElement("div");h.className="heart";h.textContent=["♡","✦","⋆","♥"][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+"%";h.style.animationDelay=Math.random()*8+"s";h.style.fontSize=12+Math.random()*15+"px";document.body.appendChild(h)}
+const music=document.getElementById("music");
+function openLetter(){document.getElementById("env").classList.add("open");music.volume=.45;music.play().catch(()=>{});setTimeout(()=>{document.getElementById("intro").classList.add("hide");document.getElementById("letter").classList.add("show");document.getElementById("musicBox").classList.add("show");document.body.style.overflow="auto"},900)}
+function toggleMusic(){let b=document.getElementById("musicBtn");if(music.paused){music.play().catch(()=>{});b.textContent="🎵 গান বন্ধ"}else{music.pause();b.textContent="🎵 গান চালু"}}
+function extra(){document.getElementById("extra").style.display="block"}
+</script>
+</body>
+</html>
